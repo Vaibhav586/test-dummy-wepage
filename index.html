@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Serenity Series | Singh Homes</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dark:#211b19;
+  --bronze:#b98360;
+  --cream:#f1e4d9;
+  --text:#29211d;
+}
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth}
+body {font-family:Montserrat,sans-serif;color:var(--text)}
+h1,h2,h3 {font-family:"Cormorant Garamond",serif;font-weight:400}
+a {text-decoration:none;color:inherit}
+button {font:inherit;cursor:pointer}
+
+/* NAV */
+nav {
+  position:absolute;z-index:10;top:0;width:100%;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:28px 5%;color:white;gap:25px;
+}
+.brand {letter-spacing:4px;font-size:13px;white-space:nowrap}
+.links {display:flex;gap:30px;font-size:11px;letter-spacing:1px}
+.btn {
+  display:inline-block;padding:14px 28px;border:1px solid #c8a17e;
+  background:transparent;color:inherit;font-size:11px;letter-spacing:1px;
+  transition:opacity .25s;
+}
+.btn.primary {background:linear-gradient(110deg,#e8bd8b,#b78157);color:#211b19;border-color:transparent}
+.btn:hover {opacity:.8}
+
+/* HERO */
+.hero {
+  min-height:100vh;
+  background:radial-gradient(ellipse at 65% 55%,#7a5038 0%,#3d2a22 30%,#1e1512 70%,#0f0c0a 100%);
+  color:white;position:relative;display:flex;align-items:center;
+  padding:140px 7% 100px;overflow:hidden;
+}
+.hero-copy {position:relative;z-index:2;width:50%}
+.logo {width:min(380px,90%);height:auto;display:block;margin-bottom:50px}
+.hero h1 {font-size:clamp(52px,5.5vw,100px);line-height:.97;margin-bottom:28px}
+.eyebrow {letter-spacing:4px;text-transform:uppercase;font-size:10px;line-height:2;color:#c8a17e}
+.hero-actions {display:flex;gap:18px;margin-top:42px;flex-wrap:wrap}
+
+/* Doorway */
+.door-wrap {
+  position:absolute;right:7%;bottom:0;width:32%;height:82%;
+  display:flex;align-items:flex-end;justify-content:center;
+}
+.door {
+  width:100%;height:100%;
+  border:2px solid #c8956055;
+  border-bottom:0;
+  border-radius:50% 50% 0 0 / 20% 20% 0 0;
+  box-shadow:0 0 60px 10px #b8845b33,inset 0 0 40px #b8845b22;
+  position:relative;
+}
+.door:before {
+  content:"";position:absolute;
+  top:8%;left:10%;right:10%;bottom:0;
+  border:1px solid #c8956033;
+  border-bottom:0;
+  border-radius:50% 50% 0 0 / 20% 20% 0 0;
+}
+.door:after {
+  content:"";position:absolute;bottom:0;left:-15%;width:130%;
+  height:4px;background:linear-gradient(90deg,transparent,#f5cf9b,transparent);
+  box-shadow:0 0 80px 35px #e7a56b44;
+}
+/* glow floor */
+.door-glow {
+  position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:140%;height:35%;
+  background:radial-gradient(ellipse at 50% 100%,#c8845b33,transparent 70%);
+  filter:blur(20px);
+}
+
+/* DESIGNED SECTION */
+.designed {
+  background:linear-gradient(135deg,#f5e8de 0%,#ecdacb 50%,#e2cbb8 100%);
+  padding:120px 8%;min-height:680px;
+  display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;
+  position:relative;overflow:hidden;
+}
+.designed:after {
+  content:"";position:absolute;right:-5%;top:0;width:40%;height:100%;
+  background:radial-gradient(ellipse at 60% 50%,#c8a07855,transparent 65%);
+  filter:blur(40px);
+}
+.designed h2 {font-size:clamp(55px,6vw,105px);line-height:.93;margin-bottom:35px}
+.designed p {font-size:16px;line-height:1.95;max-width:520px;color:#4a3a32}
+.accent {color:#95653d;font-style:italic}
+.rule {width:80px;height:2px;background:#a57850;margin:28px 0}
+.designed-right {position:relative;z-index:1}
+.designed-right img {width:100%;border-radius:2px;display:block}
+.designed-tagline {
+  margin-top:30px;font-size:11px;letter-spacing:3px;
+  color:#7a5c48;text-transform:uppercase;
+}
+
+/* REFINED SECTION */
+.refined {
+  background:#f9efe7;padding:120px 8%;min-height:700px;
+}
+.refined h2 {font-size:clamp(52px,5.5vw,100px);line-height:.93;margin-bottom:28px}
+.refined > p {font-size:16px;line-height:1.95;max-width:700px;color:#4a3a32;margin-bottom:80px}
+.features {
+  display:grid;grid-template-columns:repeat(5,1fr);
+  border-top:1px solid #d4b99e;border-left:1px solid #d4b99e;
+}
+.feature {
+  border-right:1px solid #d4b99e;border-bottom:1px solid #d4b99e;
+  padding:40px 20px;text-align:center;
+  transition:background .3s;
+}
+.feature:hover {background:#f0e0d2}
+.feature .symbol {font-size:32px;color:#996f4c;margin-bottom:18px}
+.feature span {font-size:10px;letter-spacing:2.5px;line-height:2;color:#5a4438}
+
+/* FACADE SECTION */
+.facade-section {background:#1a1512;color:#fff;position:relative}
+.facade-slider {position:relative;overflow:hidden;width:100%;aspect-ratio:1860/1020}
+.facade-image {
+  width:100%;height:100%;object-fit:cover;
+  display:block;background:#2a2018;
+  transition:opacity .45s ease;
+}
+.facade-image.fade {opacity:0}
+.facade-nav-overlay {
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:100%;display:flex;justify-content:space-between;
+  padding:0 30px;pointer-events:none;
+}
+.arrow-overlay {
+  pointer-events:all;
+  background:rgba(0,0,0,.45);border:1px solid #ad896c;color:white;
+  width:54px;height:54px;font-size:26px;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .25s;
+}
+.arrow-overlay:hover {background:rgba(180,120,70,.5)}
+.facade-info {
+  display:flex;align-items:center;justify-content:space-between;
+  padding:32px 7%;gap:25px;flex-wrap:wrap;
+  border-top:1px solid #3a2e28;
+}
+.facade-info h2 {font-size:clamp(42px,4.5vw,68px);margin:0;line-height:1}
+.facade-label {letter-spacing:3px;font-size:11px;color:#b98360;display:block;margin-top:8px}
+.facade-controls {display:flex;align-items:center;gap:18px}
+.arrow {
+  background:none;border:1px solid #ad896c;color:white;
+  width:50px;height:50px;font-size:24px;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .25s;
+}
+.arrow:hover {background:#b8784433}
+#facadeCount {width:58px;text-align:center;font-size:13px;letter-spacing:1px}
+
+/* FOOTER */
+.footer {
+  background:#1e1814;color:white;text-align:center;
+  padding:100px 20px;
+}
+.footer h2 {font-size:clamp(42px,5vw,72px);margin-bottom:18px;line-height:1.1}
+.footer p {margin-bottom:38px;font-size:14px;letter-spacing:1px;color:#c8a17e}
+.footer-links {display:flex;justify-content:center;gap:40px;margin-top:55px;font-size:11px;letter-spacing:2px;color:#7a6a60}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav {position:relative;background:#211b19;flex-wrap:wrap;padding:20px 5%}
+  .links {overflow-x:auto;width:100%;gap:18px;padding-bottom:4px}
+  .hero {min-height:auto;padding:80px 7% 80px}
+  .hero-copy {width:100%}
+  .door-wrap {opacity:.25;right:-10%;width:60%}
+  .designed {grid-template-columns:1fr;padding:80px 7%}
+  .designed-right {display:none}
+  .refined {padding:80px 7%}
+  .features {grid-template-columns:repeat(2,1fr)}
+  .facade-info h2 {font-size:38px}
+  .footer {padding:70px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="brand">SINGH HOMES</div>
+  <div class="links">
+    <a href="#home">Home</a>
+    <a href="#designed">Serenity Series</a>
+    <a href="#facades">Facades</a>
+    <a href="#refined">Our Difference</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a class="btn" href="#contact">Enquire Now</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="hero-copy">
+    <img class="logo" src="images/serenity-logo.png" alt="Serenity Series">
+    <h1>A Higher Standard<br>of Luxury Living</h1>
+    <p class="eyebrow">Bespoke Homes · Exceptional Design · Timeless Quality</p>
+    <div class="hero-actions">
+      <a href="#designed" class="btn primary">Explore the Serenity Series →</a>
+      <a href="#contact" class="btn">Book a Consultation</a>
+    </div>
+  </div>
+  <div class="door-wrap" aria-hidden="true">
+    <div class="door"></div>
+    <div class="door-glow"></div>
+  </div>
+</header>
+
+<!-- DESIGNED FOR DISCERNING LIFESTYLES -->
+<section class="designed" id="designed">
+  <div>
+    <h2>Designed for<br><span class="accent">Discerning</span><br>Lifestyles</h2>
+    <div class="rule"></div>
+    <p>A premium collection that blends architectural sophistication,
+    intelligent design and the freedom to create a home that truly
+    reflects you.</p>
+  </div>
+  <div class="designed-right">
+    <img src="images/rainwater.jpg" alt="Serenity Series Home">
+    <p class="designed-tagline">Five double-storey · Three single-storey designs</p>
+  </div>
+</section>
+
+<!-- REFINED HOMES -->
+<section class="refined" id="refined">
+  <h2>Refined Homes.<br>Tailored for You.</h2>
+  <div class="rule"></div>
+  <p>The Serenity Series by Singh Homes brings together elegant
+  architecture, luxurious finishes and exceptional flexibility,
+  giving you the freedom to design a home that is uniquely yours.</p>
+  <div class="features">
+    <div class="feature"><div class="symbol">◇</div><span>ARCHITECTURAL<br>EXCELLENCE</span></div>
+    <div class="feature"><div class="symbol">▱</div><span>FULL<br>CUSTOMISATION</span></div>
+    <div class="feature"><div class="symbol">♧</div><span>LUXURY<br>INTERIORS</span></div>
+    <div class="feature"><div class="symbol">✧</div><span>PREMIUM<br>INCLUSIONS</span></div>
+    <div class="feature"><div class="symbol">♢</div><span>25-YEAR<br>STRUCTURAL WARRANTY</span></div>
+  </div>
+</section>
+
+<!-- FACADE SHOWCASE -->
+<section class="facade-section" id="facades">
+  <div class="facade-slider">
+    <img id="facadeImage" class="facade-image" src="images/rainwater.jpg" alt="Rainwater facade">
+    <div class="facade-nav-overlay">
+      <button class="arrow-overlay" onclick="changeFacade(-1)" aria-label="Previous facade">‹</button>
+      <button class="arrow-overlay" onclick="changeFacade(1)" aria-label="Next facade">›</button>
+    </div>
+  </div>
+  <div class="facade-info">
+    <div>
+      <h2 id="facadeName">Rainwater</h2>
+      <span id="facadeType" class="facade-label">DOUBLE STOREY</span>
+    </div>
+    <div class="facade-controls">
+      <button class="arrow" onclick="changeFacade(-1)" aria-label="Previous">‹</button>
+      <span id="facadeCount">01 / 08</span>
+      <button class="arrow" onclick="changeFacade(1)" aria-label="Next">›</button>
+    </div>
+    <a href="#contact" class="btn">Enquire About This Facade →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contact">
+  <h2>Your Vision. Your Serenity.</h2>
+  <p>Begin your journey towards a truly personalised luxury home.</p>
+  <a class="btn primary" href="https://singhhomes.com.au/contact-us/">Enquire Now →</a>
+  <div class="footer-links">
+    <span>SINGH HOMES</span>
+    <span>SERENITY SERIES</span>
+    <span>© 2025</span>
+  </div>
+</footer>
+
+<script>
+const facades = [
+  ["Rainwater",   "Double Storey", "rainwater.jpg"],
+  ["Grovedale",   "Double Storey", "grovedale.jpg"],
+  ["Stonebridge", "Double Storey", "stonebridge.jpg"],
+  ["Kensington",  "Double Storey", "kensington.jpg"],
+  ["Phoenix",     "Double Storey", "phoenix.jpg"],
+  ["Bassetts",    "Single Storey", "bassetts.jpg"],
+  ["Florida",     "Single Storey", "florida.jpg"],
+  ["Beverley",    "Single Storey", "beverley.jpg"]
+];
+let current = 0, busy = false;
+
+function changeFacade(step) {
+  if (busy) return;
+  busy = true;
+  const img = document.getElementById("facadeImage");
+  img.classList.add("fade");
+  setTimeout(() => {
+    current = (current + step + facades.length) % facades.length;
+    const [name, type, image] = facades[current];
+    img.src = "images/" + image;
+    img.alt = name + " facade";
+    document.getElementById("facadeName").textContent = name;
+    document.getElementById("facadeType").textContent = type.toUpperCase();
+    document.getElementById("facadeCount").textContent =
+      String(current + 1).padStart(2, "0") + " / 08";
+    img.classList.remove("fade");
+    busy = false;
+  }, 450);
+}
+
+// Keyboard navigation
+document.addEventListener("keydown", e => {
+  if (e.key === "ArrowLeft")  changeFacade(-1);
+  if (e.key === "ArrowRight") changeFacade(1);
+});
+
+// Touch/swipe support
+let touchX = 0;
+document.getElementById("facades").addEventListener("touchstart", e => touchX = e.touches[0].clientX);
+document.getElementById("facades").addEventListener("touchend", e => {
+  const diff = touchX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) changeFacade(diff > 0 ? 1 : -1);
+});
+</script>
+</body>
+</html>
